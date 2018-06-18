@@ -1,0 +1,44 @@
+relevant link:
+- https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e
+- https://www.godaddy.com/garage/how-to-install-postgresql-on-ubuntu-14-04/
+- https://medium.com/@mohammedhammoud/postgresql-create-user-create-database-grant-privileges-access-aabb2507c0aa
+
+#Postgres Database
+
+to install:
+- sudo apt-get update
+- sudo apt-get install postgresql postgresql-contrib
+
+to start psql:
+- sudo service postgresql start
+
+create user:
+- sudo -u postgres createuser herdingcats
+
+create db:
+- sudo -u postgres createdb herdingcats
+
+assign password to user:
+- sudo -u postrges psql
+- psql=# alter user <username> with encrypted password '<password>';
+
+assign db priviliges:
+- psql=# grant all privileges on database <dbname> to <username> ;
+
+
+- sudo su postgres #switch to postgres user
+- psql #access postgres terminal
+- \list #lists current databases
+- \c <database name> # connect to database
+- \dt # list tables inside current database
+
+# edit ph_hba.conf from peer to md5 trust (I know I shouldn't do this but meh)
+
+
+CREATE TABLE USERS(
+   ID INT PRIMARY KEY     NOT NULL,
+   NAME           TEXT    NOT NULL,
+   AGE            INT     NOT NULL,
+   ADDRESS        CHAR(50),
+   SALARY         REAL
+);
